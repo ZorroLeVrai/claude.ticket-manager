@@ -15,7 +15,7 @@
 
 | Concern | Choice |
 |---|---|
-| Runtime | Node.js |
+| Runtime | Bun |
 | Framework | Express |
 | Language | TypeScript |
 | ORM | Prisma |
