@@ -29,4 +29,6 @@ The client proxies `/api/*` requests to the server via Vite config (target is co
 
 ## Documentation
 
-When working with a library, framework, SDK, API, or CLI tool (React, Express, Prisma, Vite, Tailwind, etc.), use `context7` to fetch up-to-date documentation instead of relying on training data, which may be outdated.
+- Use Bun as the runtime and package manager (not npm/yarn).
+- Use Typescript throughout.
+- When working with a library, framework, SDK, API, or CLI tool (React, Express, Prisma, Vite, Tailwind, etc.), use `context7` to fetch up-to-date documentation.
