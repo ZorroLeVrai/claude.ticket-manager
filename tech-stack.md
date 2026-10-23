@@ -20,7 +20,7 @@
 | Language | TypeScript |
 | ORM | Prisma |
 | Database | PostgreSQL |
-| Authentication | Database sessions (express-session + connect-pg-simple) |
+| Authentication | Better Auth (email/password, database sessions) |
 | AI | Anthropic Claude API (`@anthropic-ai/sdk`) |
 | Email ingestion | SendGrid or Mailgun for outbound replies and inbound webhooks |
 
