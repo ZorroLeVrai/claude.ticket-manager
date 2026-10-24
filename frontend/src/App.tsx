@@ -1,24 +1,18 @@
-import { useEffect, useState } from "react";
-import "./App.css";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router";
+import ProtectedRoute from "./components/ProtectedRoute";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
 
-const BACKEND_PORT = 3000;
+const router = createBrowserRouter([
+  { path: "/login", Component: LoginPage },
+  {
+    path: "/",
+    Component: ProtectedRoute,
+    children: [{ index: true, Component: HomePage }],
+  },
+  { path: "*", element: <Navigate to="/" replace /> },
+]);
 
-function App() {
-  const [status, setStatus] = useState<"loading" | "ok" | "error">("loading");
-
-  useEffect(() => {
-    fetch(`http://localhost:${BACKEND_PORT}/api/health`)
-      .then((res) => res.json())
-      .then((data) => setStatus(data.status === "ok" ? "ok" : "error"))
-      .catch(() => setStatus("error"));
-  }, []);
-
-  return (
-    <section id="center">
-      <h1>Ticket Manager</h1>
-      <p>Backend status: {status}</p>
-    </section>
-  );
+export default function App() {
+  return <RouterProvider router={router} />;
 }
-
-export default App;

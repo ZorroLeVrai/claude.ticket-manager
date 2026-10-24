@@ -19,10 +19,10 @@ See `tech-stack.md` for the full stack breakdown.
 
 ```bash
 # Start server
-cd server && bun run dev
+cd backend && bun run dev
 
 # Start client
-cd client && bun run dev
+cd frontend && bun run dev
 ```
 
 The client proxies `/api/*` requests to the server via Vite config (target is configurable via `VITE_API_URL` env var, defaults to `http://localhost:3000`).
