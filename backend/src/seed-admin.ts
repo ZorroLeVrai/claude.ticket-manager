@@ -7,10 +7,11 @@ const password = process.env.ADMIN_PASSWORD!;
 const ctx = await auth.$context;
 
 if (await ctx.internalAdapter.findUserByEmail(email)) {
-  console.log(`User ${email} already exists`);
+  await prisma.user.update({ where: { email }, data: { role: "admin" } });
+  console.log(`User ${email} already exists; ensured admin role`);
 } else {
   const user = await ctx.internalAdapter.createUser(
-    { email, name: "Admin", emailVerified: true },
+    { email, name: "Admin", emailVerified: true, role: "admin" },
     { method: "admin" },
   );
   await ctx.internalAdapter.linkAccount({
